@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Single page Application Demo using BackboneJS</title>
+
+    <meta name="viewport" content="width=device-width; initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="src/css/camps_style.css">
+    <link rel="stylesheet" type="text/css" href="src/css/theme-harmony-less.css">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+
+        
+	  <script src="lib/jquery.js"></script>
+	  <script src="lib/bootstrap-modal.js"></script>
+      <script src="lib/bootstrap-dropdown.js"></script>
+
+</head>
+
+<body>
+    <script src="lib/require.js"></script>
+	
+    <!-- One  JS file for SPA -->
+    <script type="text/javascript" src="start.js"></script>
+
+    <div id="mainTemplate">
+        <header id="header" style="top:0px;">
+            <hgroup id="title">
+
+            </hgroup>
+            <nav class="navigation">
+                <div class="navbar " style="margin-bottom:0px">
+                    <div class="navbar-inner" style="border-radius:0px">
+                        <div style="position:relative;">
+                        <div class="">
+                                <a href="#" class="brand">Single Page Application Demo using BackboneJS</a>
+                         </div>
+
+                <div class="nav-collapse collapse navbar-inverse-collapse">
+                    <ul class="nav">
+                      
+                      <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" ><span id="selectspa">Customer List</span><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                         <li><a href="#customerlist" id="listcustomer">Customer List</a></li>
+                         <li><a href="#addresslist" id="listaddress">Address List</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                   
+                  </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </header>
+        <div class="resize"></div>
+        <div id="Wrapper" class="paperPanel" style="padding:0px;margin-top:60px">
+            <div id="Wrapper2">
+                <article id="contents" style="border-left: 1px solid #ccc;">
+						
+                        <!-- Place Holder -->
+                    <div id="customer"></div>
+                    <div id="address"></div>
+                </article>
+                        <!-- Place Holder -->
+                        
+            </div>
+            <footer id="copyrights">
+                <div class="trowserFooter">
+                    <div class="navbar " style="margin-bottom:0px">
+                        <div class="">
+                            <div class="">
+                                <div class="nav-collapse collapse navbar-inverse-collapse">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>

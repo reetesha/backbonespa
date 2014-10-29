@@ -1,0 +1,2 @@
+//  Collection of Contacts Models
+define([ 'backbone', 'module/contacts/src/js/model/Contacts'], function( Backbone, Contacts ) {    "use strict";    var _collection = Backbone.Collection.extend({        model: Contacts    });    return _collection;});

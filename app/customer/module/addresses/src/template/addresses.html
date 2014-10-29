@@ -1,0 +1,149 @@
+<label class="h1Title textBold">Addresses List</label>
+<i class="icon-plus pull-right poineterCursorGeneric" style="margin:-40px 10px 10px 10px" href="#myModal_addAddress" data-toggle="modal"></i>
+<label class="m-T-inverse20">
+    <h3   data-toggle="collapse" data-target="#account_address"  class="pull-left poineterCursorGeneric labelTextBold">
+     <i class="collapse-g dispalyInlineBlock arrowMargin pull-left"></i>
+     <i class="expand-g  dispalyInlineBlock arrowMargin pull-left" style="display:none"></i>
+</label>
+<div id="account_address" class="collapse" style="min-width:200px" >
+
+  <% _(addresses).each(function(address) { %>
+     <label class="m-t2 m-b0"><%= address.addressInfo.addressLine1 %> </label>
+      <label class="m-b0"><%= address.addressInfo.addressLine2 %></label>
+     <label class="m-b0"><%= address.addressInfo.city %>, <%= address.addressInfo.state %> <%= address.addressInfo.postalCode %></label>
+  <% }); %>
+</div>
+
+<div id="account_address" class="in collapse" style="height: auto;">
+  
+     <label class="m-t2 m-b0">162 Hill Drives</label>
+	 <label class="m-b0"><i class="icon-pencil pull-right poineterCursorGeneric" href="#myModal_addAddress" data-toggle="modal"></i></label>
+     <label class="m-b0" style="border-bottom: 1px dotted rgb(219, 217, 217);">VISTA, CA 92083</label>
+  
+     <label class="m-t2 m-b0">Meno Park</label>
+	 <label class="m-b0"><i class="icon-pencil pull-right poineterCursorGeneric" href="#myModal_addAddress" data-toggle="modal"></i></label>
+     <label class="m-b0" style="border-bottom: 1px dotted rgb(219, 217, 217);">Schenectady, NY 12345</label>
+  
+     <label class="m-t2 m-b0">166 Drive </label>
+	 <label class="m-b0"><i class="icon-pencil pull-right poineterCursorGeneric" href="#myModal_addAddress" data-toggle="modal"></i></label>
+     <label class="m-b0" style="border-bottom: 1px dotted rgb(219, 217, 217);">Schenectady, NY 12345</label>
+  
+     <label class="m-t2 m-b0">788 park Drive</label>
+	 <label class="m-b0"><i class="icon-pencil pull-right poineterCursorGeneric" href="#myModal_addAddress" data-toggle="modal"></i></label>
+     <label class="m-b0" style="border-bottom: 1px dotted rgb(219, 217, 217);">Schenectady, NY 12345</label>
+  
+     <label class="m-t2 m-b0">201 Layout</label>
+	 <label class="m-b0"><i class="icon-pencil pull-right poineterCursorGeneric" href="#myModal_addAddress" data-toggle="modal"></i></label>
+     <label class="m-b0" style="border-bottom: 1px dotted rgb(219, 217, 217);">Schenectady, NY 12345</label>
+  
+     <label class="m-t2 m-b0">109 Shift home</label>
+	 <label class="m-b0"><i class="icon-pencil pull-right poineterCursorGeneric" href="#myModal_addAddress" data-toggle="modal"></i></label>
+     <label class="m-b0" style="border-bottom: 1px dotted rgb(219, 217, 217);">Schenectady, NY 12345</label>
+  
+     
+  
+</div>
+
+<!-- Modal edit contact-->
+<div id="myModal_addAddress" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <div class="titlecontainerdiv">
+                                           <h3>Add Address </h3>
+                                        </div>
+  </div>
+  <div class="modal-body">
+    
+					<!--  Add Address templates-->
+                    <div class="errorFieldRed "  id="serverError-addNewBillingAddress" style="display:none;padding:20px">
+    <div >
+        <i class="icon-error dispalyInlineBlock"></i><span class="errorText  subtitleFlyoutInner ml-1">Something Went Wrong</span>                     
+    </div>
+
+    <div class="m-t2" id="errorMessageDiv">
+    <strong>Unfortunately, our system isn't cooperating right now and we can't complete the address updates. We're working on solving this problem.
+            Please try again later.</strong>
+    </div>
+
+</div>
+<div class="markAddressForDeleteInfo  pull-left" style="clear:both;display:none;" id=""><i class="icon-info-blue"></i><span>This address will be removed when you save and close. <a class="undoMarkForDeleteAddress poineterCursorGeneric" id="" style="color:#0098cd;text-decoration:underline;">Undo</a></span></div>
+<div class="tooltipErrorValidaiton" style="clear:both"></div>
+<table class="edittable_0px pull-left" id="" style="margin:5px 0 26px 0;">      
+	<tr>
+		<td colspan="3" style="width:422px" id="widthHack">
+			<textarea rows="3"  data-name="addressInfo.addressLine1" placeholder="Street Address 1"  class="validateOnBlur" name="addressInfo.addressLine1" maxlength="200"  onKeyPress="return ( this.value.length < 200);"></textarea>
+			<div style="border-bottom: 1px solid #d1d1d1;"></div>
+			<textarea rows="3"  data-name="addressInfo.addressLine2" placeholder="Street Address 2" class="validateOnBlur" name="addressInfo.addressLine2" maxlength="200"  onKeyPress="return ( this.value.length < 200);"></textarea>
+		</td>
+	</tr>
+	<tr id="editAdressTR">
+		<td style="width:170px">
+			<input type="text" id="city" placeholder="City" class="input-small validateOnBlur" data-name="addressInfo.city" maxlength="64" name="addressInfo.city">
+		</td>
+		<td >
+			<select id="state"  class="input-small btn validateOnBlur" data-name="addressInfo.state" maxlength="50" style="width:90px"></select>
+		</td>
+		<td style="width:170px">
+			<input type="text" id="postalCode" placeholder="Postal Code" class="input-small validateOnBlur" data-name="addressInfo.postalCode" maxlength="30" name="addressInfo.postalCode">
+		</td>
+	</tr>
+	<tr id="addAdressTR" style="display:none;">
+		<td>
+			<input type="text" id="postalCode" placeholder="ZIP" class="input-small validateOnBlur" data-name="addressInfo.postalCode" name="addressInfo.postalCode">
+		</td>		
+		<td colspan="2" style="width:200px" placeholder="">
+			<label class="commaonLablePleaceholder m-point5">Enter ZIP for City & State</label><span class="spinnerload pull-left m-Tpoint5" style="display:none" ></span>
+
+			<select id="cityState" style="display:none;" class="validateOnBlur btn pull-left">	
+				<option  value='city-state' selected></option>
+				<option  value='Other'>Other</option>						
+			</select>
+		</td>		
+	</tr>
+	<tr id="canadaAdressTR" style="display:none">
+		<td>
+			<input type="text" id="city" placeholder="City" class="input-small validateOnBlur" name="addressInfo.city" data-name="addressInfo.city" name="addressInfo.city">
+		</td>
+		<td>
+			<select  id="state" placeholder="Province" class="input-small validateOnBlur" data-name="addressInfo.state" name="addressInfo.state"></select>
+		</td>
+		<td>
+			<input type="text" id="postalCode" placeholder="Postal Code" class="input-small validateOnBlur" name="addressInfo.postalCode" data-name="addressInfo.postalCode">
+		</td>
+	</tr>
+	<tr id="internationalAdressTR" style="display:none">
+		<td>
+			<input type="text" id="city" placeholder="City" class="input-small validateOnBlur" data-name="addressInfo.city" name="addressInfo.city">
+		</td>
+		<td>
+			<input type="text" id="stateInternational" placeholder="State/Province" class="input-small validateOnBlur" data-name="addressInfo.state">
+		</td>
+		<td>
+			<input type="text" id="postalCode" placeholder="ZIP/Postal Code" class="input-small validateOnBlur" data-name="addressInfo.postalCode" name="addressInfo.postalCode">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" >		
+			<select id="country"   class="btn validateOnBlur" data-name="addressInfo.country" maxlength="2"></select>		
+		</td>
+	</tr>
+	<tr id="primaryAddressIndicator_tr" style="display:none">
+		<td colspan="3" style="width:422px; border:0px !important;background-color: #F3F8FE;padding: 2px 2px 2px 5px; color: rgb(179, 179, 179);" class="primaryAddressIndicator" id=""></td>	
+	</tr>
+	<tr>
+		<td colspan="3" style="width:422px; border:0px;background-color: #F3F8FE;" id="paymentMethods"></td>	
+	</tr>
+</table>
+<i class="icon-delete markForDelete-icon poineterCursorGeneric pull-left" id="" style="margin-top:65px;margin-left:10px"></i>
+<div class="modal-footer" style="display:none" id="modalFooter">
+		<button class="btn pull-left" data-dismiss="modal" aria-hidden="true" id="cancelNewBillingAdress">Cancel</button>
+		<button class="btn btn-primary" id="saveAndCloseNewBillingAdress">Save</button>
+</div>
+                    <!--//Add Address templates -->
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+<!-- //modal edit contact-->
